@@ -114,3 +114,29 @@ namespace AA = A;
 cout << AA::b << endl;
 ```
 
+# using使用
+
+```c++
+namespace A {
+    int b = 20;
+}
+
+void test01() {
+    int a = 10;
+    cout << a << endl; // 10
+
+    // using声明，后面使用的都是A作用域的a变量
+    using A::b;
+    cout << b << endl; // 20
+}
+
+void test02() {
+    int b = 30;
+    cout << b << endl; // 30
+
+    using namespace A;
+    cout << b << endl; // 30
+    cout << A::b << endl; // 20
+}
+```
+
