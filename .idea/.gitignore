@@ -8,4 +8,4 @@
 /httpRequests/
 
 ../cmake-build-debug-mingw
-../cmake-build-debug
+../cmake-build-debug/**
