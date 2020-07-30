@@ -140,3 +140,103 @@ void test02() {
 }
 ```
 
+# C++对C语言的增强
+
+一句话：C++更严格，功能更强大。
+
+1. 全局变量检测：C语言不会报错
+```c++
+int a;
+int a = 10;
+```
+
+2. 函数参数检测：C语言能编译
+```c++
+int getArea(w, h) {
+}
+
+void test() {
+    getArea(10, 20);
+}
+```
+
+3. 类型转换检测: C语言不报错
+```c++
+void test01() {
+    // malloc返回是void*
+    char *p = malloc(sizeof(64));
+}
+```
+
+4. 结构体增强：C语言不能加函数
+```c++
+struct Person {
+    int age;
+
+    // void addAge(); C++可以
+};
+```
+
+5. 结构体的初始化struct：
+```c++
+void test04() {
+    // C语言必须加struct关键字
+    struct Person p1;
+}
+
+void test04() {
+    // C++语言不必加struct关键字
+    Person p1;
+}
+```
+
+6. bool类型增强：C语言里没有bool类型
+```c++
+cout << sizeof(bool) << endl; // 1
+bool flag;
+cout << flag << endl; // 0
+flag = 100;
+cout << flag << endl; // 1
+```
+
+7. 三目运算符增强：
+
+```c++
+// C语言中返回的是值
+void test05() {
+    int a = 10;
+    int b = 20;
+    *(a > b ? &a : &b) = 100;
+    printf("a=%d,b=%d", a, b); // a=10,b=100
+}
+
+// C++语言中返回的是变量
+void test05() {
+    int a = 10;
+    int b = 20;
+    a > b ? a : b = 100;
+    cout << "a=" << a << ",b=" << b << endl; // a=10,b=100
+}
+```
+
+8. const增强: C语言里局部变量的const可以被修改，C++里不行
+
+```c++
+void test06() {
+    const int d = 30;
+
+    int *p = (int *) &d;
+    *p = 100;
+    printf("*p=%d, d=%d\n", *p, d); // *p=100, d=100
+}
+
+void test06() {
+    const int d = 30;
+
+    int *p = (int *) &d;
+    *p = 100;
+    cout << "*p=" << *p << ", d=" << d << endl; // *p=100, d=30
+}
+```
+
+
