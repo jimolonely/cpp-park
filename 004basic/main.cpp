@@ -20,8 +20,17 @@ extern int g_count;
 
 extern void global_func();
 
+#include <cmath>
+#include <cstdlib>
+#include <ctime>
+
 int main() {
-    cout << g_count << endl;
+    cout << sin(60) << endl; // -0.304811
+    cout << rand() << endl; // 41
+    cout << time(nullptr) << endl; // 1596274149
+
+//    g_count = 10;
+//    cout << g_count << endl;
 
     cout << "Size of char : " << sizeof(char) << endl;
     cout << "Size of int : " << sizeof(int) << endl;

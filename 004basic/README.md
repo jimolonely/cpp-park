@@ -121,6 +121,36 @@ extern int g_count;
 extern void global_func();
 ```
 
+# 运算符
 
+1. 算术运算符: `+,-,*,/,%,++,--`
+
+2. 关系运算符： `==,!=,>,<,>=,<=`
+
+3. 逻辑运算符： `&&,||,!`
+
+4. bit运算符： `&,|,^, ~,<<,>>`
+
+5. 其他操作符：
+```c++
+sizeof
+con ? X:Y
+. 和 ->
+强转，比如 int(2.2)
+&: 取变量的地址
+*: 指向一个变量
+```
+
+# 常用库
+
+```c++
+#include <cmath>
+#include <cstdlib>
+#include <ctime>
+
+cout << sin(60) << endl; // -0.304811
+cout << rand() << endl; // 41
+cout << time(nullptr) << endl; // 1596274149
+```
 
 
