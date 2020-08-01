@@ -44,5 +44,18 @@ int main() {
     test05();
 
     test06();
+
+    const int aa = 10;
+    int *p = (int *) &aa;// 会分配内存
+    *p = 20;
+    cout << *p << endl; // 20
+    cout << aa << endl; // 10
+
+    // 用普通变量初始化const的变量
+    int bb = 10;
+    const int cc = bb; // 会分配内存
+    int *p1 = (int *) &cc;
+    *p1 = 100;
+    cout << cc << endl; // 100
     return 0;
 }
