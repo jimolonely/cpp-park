@@ -64,6 +64,67 @@ int main() {
     // compare
     cout << ss1.compare(ss2) << endl; // -1
 
+    int v1 = 10;
+    int v2[10];
+    cout << &v1 << endl; // 0x61fe08
+    cout << &v2 << endl; // 0x61fde0
+
+    int *ip;
+
+    ip = &v1; // 存储地址
+    cout << ip << endl; // 0x61fe08
+    // 取值
+    cout << *ip << endl; // 10
+
+    int *ptr = NULL;
+    cout << ptr << endl; // 0
+
+    int arr[3] = {10, 100, 200};
+    int *parr;
+    parr = arr;
+    for (int k = 0; k < 3; ++k) {
+        cout << "k=" << k << ",地址为：" << parr << ", 值为：" << *parr << endl;
+        parr++;
+    }
+    parr = &arr[2];
+    for (int k = 2; k >= 0; --k) {
+        cout << "k=" << k << ",地址为：" << parr << ", 值为：" << *parr << endl;
+        parr--;
+    }
+
+    parr = arr;
+    int i = 0;
+    while (parr <= &arr[2]) {
+        cout << "i=" << i << ",地址为：" << parr << ", 值为：" << *parr << endl;
+        parr++;
+        i++;
+    }
+
+    int *paa[3];
+    for (int l = 0; l < 3; ++l) {
+        paa[l] = &arr[l];
+    }
+    for (int m = 0; m < 3; ++m) {
+        cout << "m=" << m << ",地址为：" << paa[m] << ", 值为：" << *paa[m] << endl;
+    }
+
+    int i1 = 100;
+    int *pi1;
+    int **ppi1;
+    pi1 = &i1;
+    ppi1 = &pi1;
+    cout << "i1=" << i1 << ", pi1=" << pi1 << ", *pi1=" << *pi1 << ", ppi1=" << ppi1 << ", *ppi1=" << *ppi1
+         << ", **ppi1=" << **ppi1 << endl;
     return 0;
 }
 
+void func1(int *arr) {}
+
+void func2(int arr[10]) {}
+
+void func3(int arr[]) {}
+
+int *func4() {
+    int r[10];
+    return r;
+}
