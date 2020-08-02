@@ -196,3 +196,58 @@ int *func4() {
     return r;
 }
 ```
+
+# 引用
+
+引用和指针的区别：
+
+* 引用不能为NULL
+* 一旦引用被初始化，就不能再修改为另一个对象的引用
+* 引用必须在创建时初始化
+
+```c++
+int c = 10;
+double d = 2.3;
+int &rc = c;
+double &rd = d;
+cout << "rd=" << rd << ", rc=" << rc << endl; // rd=2.3, rc=10
+```
+
+引用有啥用？
+
+可以作为参数修改引用变量的值
+
+```c++
+void swap(int &t1, int &t2) {
+    int t = t1;
+    t1 = t2;
+    t2 = t;
+}
+
+int t1 = 100;
+int t2 = 200;
+cout << "t1=" << t1 << ", t2=" << t2 << endl; // t1=100, t2=200
+swap(t1, t2);
+cout << "t1=" << t1 << ", t2=" << t2 << endl; // t1=200, t2=100
+```
+
+返回引用 ，在外面修改值
+
+```c++
+double vals[] = {1.1, 2.2, 3.3};
+
+double &setValues(int i) {
+    return vals[i];
+}
+
+for (int n = 0; n < 3; ++n) {
+    cout << "vals[" << n << "]=" << vals[n] << " ";
+}
+cout << endl; // vals[0]=1.1 vals[1]=2.2 vals[2]=3.3
+setValues(1) = 22.22;
+setValues(2) = 33.33;
+for (int n = 0; n < 3; ++n) {
+    cout << "vals[" << n << "]=" << vals[n] << " ";
+}
+cout << endl; // vals[0]=1.1 vals[1]=22.22 vals[2]=33.33
+```

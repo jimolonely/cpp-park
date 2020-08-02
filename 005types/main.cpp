@@ -7,6 +7,17 @@
 
 using namespace std;
 
+void swap(int &t1, int &t2) {
+    int t = t1;
+    t1 = t2;
+    t2 = t;
+}
+
+double vals[] = {1.1, 2.2, 3.3};
+
+double &setValues(int i) {
+    return vals[i];
+}
 
 int main() {
 
@@ -115,8 +126,33 @@ int main() {
     ppi1 = &pi1;
     cout << "i1=" << i1 << ", pi1=" << pi1 << ", *pi1=" << *pi1 << ", ppi1=" << ppi1 << ", *ppi1=" << *ppi1
          << ", **ppi1=" << **ppi1 << endl;
+
+    int c = 10;
+    double d = 2.3;
+    int &rc = c;
+    double &rd = d;
+    cout << "rd=" << rd << ", rc=" << rc << endl; // rd=2.3, rc=10
+
+    int t1 = 100;
+    int t2 = 200;
+    cout << "t1=" << t1 << ", t2=" << t2 << endl; // t1=100, t2=200
+    swap(t1, t2);
+    cout << "t1=" << t1 << ", t2=" << t2 << endl; // t1=200, t2=100
+
+    for (int n = 0; n < 3; ++n) {
+        cout << "vals[" << n << "]=" << vals[n] << " ";
+    }
+    cout << endl; // vals[0]=1.1 vals[1]=2.2 vals[2]=3.3
+    setValues(1) = 22.22;
+    setValues(2) = 33.33;
+    for (int n = 0; n < 3; ++n) {
+        cout << "vals[" << n << "]=" << vals[n] << " ";
+    }
+    cout << endl; // vals[0]=1.1 vals[1]=22.22 vals[2]=33.33
+
     return 0;
 }
+
 
 void func1(int *arr) {}
 
