@@ -14,11 +14,13 @@ public:
 
     Student() {
         cout << "Student()" << endl;
+        totalCount++;
     }
 
     Student(int id, string name) {
         this->id = id;
         this->name = name;
+        totalCount++;
     }
 
     ~Student() {
@@ -30,6 +32,22 @@ public:
     }
 };
 
+int Student::totalCount = 0;
+
+struct Rectangle {
+    int w;
+    int h;
+
+    Rectangle(int w, int h) {
+        this->w = w;
+        this->h = h;
+    }
+
+    void print() {
+        cout << "area:" << (w * h) << endl;
+    }
+};
+
 int main() {
     Student s1;
     s1.id = 18;
@@ -38,8 +56,8 @@ int main() {
     Student s2 = Student(19, "hehe");
     s2.display();
 
-    int Student::totalCount = 100;
-    s2.display();
+    struct Rectangle rec = Rectangle(3, 5);
+    rec.print();
 
     return 0;
 }
