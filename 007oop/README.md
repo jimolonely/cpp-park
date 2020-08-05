@@ -101,3 +101,18 @@ rec.print();
 * 结构体默认属性都是public的
 * class里不修饰是private的
 
+## 枚举
+
+默认从0开始
+
+```c++
+enum week {
+    MONDAY = 0,
+    TUESDAY,
+    WEDNESDAY
+};
+
+    week day;
+    day = TUESDAY;
+    cout << day << endl; // 1
+```

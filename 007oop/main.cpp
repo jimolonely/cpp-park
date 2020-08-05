@@ -48,6 +48,12 @@ struct Rectangle {
     }
 };
 
+enum week {
+    MONDAY = 0,
+    TUESDAY,
+    WEDNESDAY
+};
+
 int main() {
     Student s1;
     s1.id = 18;
@@ -58,6 +64,10 @@ int main() {
 
     struct Rectangle rec = Rectangle(3, 5);
     rec.print();
+
+    week day;
+    day = TUESDAY;
+    cout << day << endl;
 
     return 0;
 }
