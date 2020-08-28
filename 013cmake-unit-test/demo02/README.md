@@ -1,5 +1,19 @@
 # 静态依赖库
 
+就是编译文件的打包
+
+```shell script
+cmake_minimum_required(VERSION 3.10)
+
+project(demo02)
+
+add_library(message STATIC message.cpp message.hpp)
+
+add_executable(demo02 main.cpp)
+
+target_link_libraries(demo02 message)
+```
+
 编译：
 ```shell script
 $ cd demo02
@@ -50,6 +64,40 @@ hello
 This is my jimo message: 
 world
 ```
+
+# 动态库
+
+动态链接，运行时才加载的库
+
+```shell script
+add_library(message SHARED message.cpp message.hpp)
+```
+
+编译步骤和上面一样，看看有什么区别：
+
+```shell script
+$ ll
+总用量 68
+drwxr-xr-x 3 jack jack  4096 8月  28 21:51 ./
+drwxrwxr-x 3 jack jack  4096 8月  28 21:51 ../
+-rw-r--r-- 1 jack jack 12807 8月  28 21:51 CMakeCache.txt
+drwxr-xr-x 6 jack jack  4096 8月  28 21:51 CMakeFiles/
+-rw-r--r-- 1 jack jack  1570 8月  28 21:51 cmake_install.cmake
+-rwxr-xr-x 1 jack jack 14136 8月  28 21:51 demo02*
+-rwxr-xr-x 1 jack jack  8672 8月  28 21:51 libmessage.so*
+-rw-r--r-- 1 jack jack  5993 8月  28 21:51 Makefile
+```
+
+可以看到：静态的后缀是a，动态是so，且可执行
+```shell script
+-rw-r--r-- 1 jack jack  3110 8月  28 09:02 libmessage.a
+VS
+-rwxr-xr-x 1 jack jack  8672 8月  28 21:51 libmessage.so*
+```
+
+# 对象库
+
+这个待研究 TODO
 
 # 命令解释
 
