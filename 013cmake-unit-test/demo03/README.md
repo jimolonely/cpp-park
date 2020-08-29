@@ -77,3 +77,23 @@ drwxr-xr-x 6 jack jack  4096 8月  28 22:09 CMakeFiles/
 -rw-r--r-- 1 jack jack  3110 8月  28 22:09 libmessage.a
 -rw-r--r-- 1 jack jack  5993 8月  28 22:09 Makefile
 ```
+
+# 外部指定选项
+
+```shell script
+#set(USE_LIB ON)
+option(USE_LIB "全部编译到一个库?" OFF)
+```
+测试：
+```shell script
+demo03/build$ cmake ..
+-- 全部编译到一个库：OFF
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/jack/workspace/Git/cpp-park/013cmake-unit-test/demo03/build
+demo03/build$ cmake -D USE_LIB=ON ..
+-- 全部编译到一个库：ON
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/jack/workspace/Git/cpp-park/013cmake-unit-test/demo03/build
+```

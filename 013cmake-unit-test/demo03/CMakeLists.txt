@@ -2,7 +2,8 @@ cmake_minimum_required(VERSION 3.10)
 
 project(demo03)
 
-set(USE_LIB ON)
+#set(USE_LIB ON)
+option(USE_LIB "全部编译到一个库?" OFF)
 
 message(STATUS "全部编译到一个库：${USE_LIB}")
 
